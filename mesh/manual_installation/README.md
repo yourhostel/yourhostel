@@ -41,7 +41,7 @@ docker version
 docker compose up -d
 
 # DNS перевірка
-dig +short mesh.yourhostel.kiev.ua
+dig +short <Host-URL>
 
 
 https://<Host-URL>/meshagents
