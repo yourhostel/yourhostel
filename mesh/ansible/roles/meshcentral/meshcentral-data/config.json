@@ -1,6 +1,6 @@
 {
   "settings": {
-    "cert": "mesh.yourhostel.kiev.ua",
+    "cert": "<Host-URL>",
     "WANonly": true,
     "Port": 443,
     "AliasPort": 443,
