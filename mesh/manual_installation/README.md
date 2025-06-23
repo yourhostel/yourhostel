@@ -40,10 +40,11 @@ sh get-docker.sh
 docker version
 docker compose up -d
 
+# DNS перевірка
 dig +short mesh.yourhostel.kiev.ua
 
-# DNS перевірка
-https://mesh.yourhostel.kiev.ua/meshagents
+
+https://<Host-URL>/meshagents
 ```
 
 # Повне очищення Docker
