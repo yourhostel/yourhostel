@@ -1,0 +1,40 @@
+- name: Забезпечити наявність базових каталогів
+  file:
+    path: "{{ meshcentral_dir }}/{{ item }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - mongo-data
+    - meshcentral-data
+
+- name: Скопіювати config.json
+  copy:
+    src: meshcentral-data/config.json
+    dest: "{{ meshcentral_dir }}/meshcentral-data/config.json"
+    mode: '0644'
+
+- name: Скопіювати TLS сертифікат (публічний)
+  copy:
+    src: meshcentral-data/webserver-cert-public.crt
+    dest: "{{ meshcentral_dir }}/meshcentral-data/webserver-cert-public.crt"
+    mode: '0644'
+
+- name: Скопіювати TLS сертифікат (приватний)
+  copy:
+    src: meshcentral-data/webserver-cert-private.key
+    dest: "{{ meshcentral_dir }}/meshcentral-data/webserver-cert-private.key"
+    mode: '0600'
+
+- name: Скопіювати docker-compose.yml
+  copy:
+    src: docker-compose.yml
+    dest: "{{ meshcentral_dir }}/docker-compose.yml"
+    mode: '0644'
+
+- name: Запустити MeshCentral через Docker Compose (v2)
+  community.docker.docker_compose_v2:
+    project_src: "{{ meshcentral_dir }}"
+    state: present
+    pull: missing
+    recreate: auto
+

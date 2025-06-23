@@ -1,0 +1,18 @@
+{
+  "settings": {
+    "cert": "mesh.yourhostel.kiev.ua",
+    "WANonly": true,
+    "Port": 443,
+    "AliasPort": 443,
+    "RedirPort": 80,
+    "MongoDb": "mongodb://mongo:27017/meshcentral",
+    "TLSOffload": false
+  },
+  "domains": {
+    "": {
+      "title": "MeshCentral",
+      "newAccounts": false,
+      "userNameIsEmail": true
+    }
+  }
+}

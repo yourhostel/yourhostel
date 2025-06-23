@@ -1,0 +1,25 @@
+# docker-compose.yml
+
+version: "3"
+
+services:
+  meshcentral:
+    image: ghcr.io/ylianst/meshcentral:latest
+    container_name: meshcentral
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./meshcentral-data:/opt/meshcentral/meshcentral-data
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:4.4
+    container_name: meshcentral-mongo
+    restart: unless-stopped
+    volumes:
+      - ./mongo-data:/data/db
+
+

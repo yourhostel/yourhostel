@@ -1,0 +1,9 @@
+- name: Deploy MeshCentral
+  hosts: meshcentral
+  become: true
+
+  vars:
+    meshcentral_dir: /opt/meshcentral
+
+  roles:
+    - meshcentral

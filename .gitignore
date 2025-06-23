@@ -192,3 +192,15 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# PyCharm
+.idea/
+
+# Ansible sensitive
+*.vault
+*.env
+.env*
+secrets.yml
+
+# Virtualenv
+.venv/
